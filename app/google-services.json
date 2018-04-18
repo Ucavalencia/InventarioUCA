@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "140776816171",
+    "firebase_url": "https://inventario-uca.firebaseio.com",
+    "project_id": "inventario-uca",
+    "storage_bucket": "inventario-uca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140776816171:android:7880745ebe2ad874",
+        "android_client_info": {
+          "package_name": "com.uca.firebasetest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140776816171-36p722pp60lk7n97u01cvfll4900tb7d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uca.firebasetest",
+            "certificate_hash": "6e9fa8ee19561a4f3f54f9fb70702b87a5f8f4a7"
+          }
+        },
+        {
+          "client_id": "140776816171-ak2q1n71rmpfiefmotf4r0kb0fmgg31f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEnj04sfmRCh8GnTTkPExp0FVAGuhUBPQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140776816171-ak2q1n71rmpfiefmotf4r0kb0fmgg31f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
