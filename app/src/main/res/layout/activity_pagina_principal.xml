@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PaginaPrincipal"
+    tools:layout_editor_absoluteY="81dp">
+
+    <ImageButton
+        android:id="@+id/escanear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/manual"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/codigo_barras"
+        android:layout_marginRight="8dp" />
+
+    <ImageButton
+        android:id="@+id/manual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="7dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toStartOf="@+id/escanear"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/manual"
+        android:layout_marginRight="7dp" />
+
+    <ImageButton
+        android:id="@+id/buscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/buscar"
+        android:layout_marginLeft="32dp" />
+
+    <ImageButton
+        android:id="@+id/informes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        app:layout_constraintStart_toEndOf="@+id/buscar"
+        app:layout_constraintTop_toTopOf="@+id/buscar"
+        app:srcCompat="@drawable/informes"
+        android:layout_marginLeft="28dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginTop="16dp"
+        android:text="Introducción Manual"
+        app:layout_constraintEnd_toEndOf="@+id/manual"
+        app:layout_constraintTop_toBottomOf="@+id/manual"
+        android:layout_marginRight="1dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Escanear"
+        app:layout_constraintEnd_toEndOf="@+id/escanear"
+        app:layout_constraintStart_toStartOf="@+id/escanear"
+        app:layout_constraintTop_toBottomOf="@+id/escanear" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Buscar"
+        app:layout_constraintEnd_toEndOf="@+id/buscar"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="@+id/buscar"
+        app:layout_constraintTop_toBottomOf="@+id/buscar" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:layout_marginTop="16dp"
+        android:text="Listado"
+        app:layout_constraintEnd_toEndOf="@+id/informes"
+        app:layout_constraintTop_toBottomOf="@+id/informes"
+        android:layout_marginRight="52dp" />
+</android.support.constraint.ConstraintLayout>
