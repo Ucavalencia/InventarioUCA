@@ -35,7 +35,7 @@ public class PaginaPrincipal extends AppCompatActivity {
         buscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Manual.class);
+                Intent intent = new Intent(getApplicationContext(), Buscar.class);
                 startActivity(intent);
             }
         });
@@ -44,7 +44,7 @@ public class PaginaPrincipal extends AppCompatActivity {
         informes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Manual.class);
+                Intent intent = new Intent(getApplicationContext(), Informes.class);
                 startActivity(intent);
             }
         });
