@@ -1,5 +1,6 @@
 package com.uca.firebasetest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.zxing.integration.android.IntentIntegrator;
 
 /**
  * Created by Toni on 18/04/2018.
@@ -35,6 +37,9 @@ public class Manual extends AppCompatActivity {
     public void startScanner(View view)
     {
         // Start scanner here
+        Intent intent = new Intent(getApplicationContext(), QRScanner.class);
+        startActivity(intent);
+        Toast.makeText(this, intent.getStringExtra("codeResult"), Toast.LENGTH_SHORT).show();
     }
 
     public void buscarCodigo(View view)

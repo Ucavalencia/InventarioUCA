@@ -16,13 +16,15 @@
             </intent-filter>
         </activity>
 
-		<activity android:name=".MainActivity">
-		
-		</activity>
-		
-        <activity android:name=".Manual">
+		<activity android:name=".MainActivity" />
 
-        </activity>
+        <activity android:name=".Manual" />
+
+        <activity android:name=".Buscar" />
+
+        <activity android:name=".Informes" />
+
+        <activity android:name=".QRScanner" />
     </application>
 
 </manifest>
