@@ -89,9 +89,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="52dp"
+        android:layout_marginRight="52dp"
         android:layout_marginTop="16dp"
-        android:text="Listado"
+        android:text="Consulta"
         app:layout_constraintEnd_toEndOf="@+id/informes"
-        app:layout_constraintTop_toBottomOf="@+id/informes"
-        android:layout_marginRight="52dp" />
+        app:layout_constraintTop_toBottomOf="@+id/informes" />
 </android.support.constraint.ConstraintLayout>

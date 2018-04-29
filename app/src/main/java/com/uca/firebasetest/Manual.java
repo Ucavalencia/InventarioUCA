@@ -5,19 +5,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.zxing.integration.android.IntentIntegrator;
-
-/**
- * Created by Toni on 18/04/2018.
- */
 
 public class Manual extends AppCompatActivity {
+
     private Spinner spinner;
+    static final int REQUEST = 1;
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +24,7 @@ public class Manual extends AppCompatActivity {
         setContentView(R.layout.activity_manual);
 
         spinner = (Spinner) findViewById(R.id.spinner);
+        editText = (EditText) findViewById(R.id.editText);
 
         String[] ubicaciones = new String[] {"Almacén","Mostrador01","Mostrador02","Mostrador03","Mostrador04","Mostrador05","Mostrador06","Mostrador07","Mostrador08","Mostrador09","Mostrador10","Mostrador11","Mostrador12","Mostrador13","Mostrador14","Mostrador15","Mostrador16","Mostrador17","Mostrador18","Mostrador19","Mostrador20","Mostrador21","Mostrador22","Mostrador23","Mostrador24","Mostrador25","Mostrador26","Mostrador27",
                 "Mostrador28","Mostrador29","Mostrador30","Mostrador31","Mostrador32","Mostrador33","Mostrador34","Mostrador35","Mostrador36","Mostrador37","Mostrador38","Mostrador39","Mostrador40","Mostrador41","Mostrador42","Mostrador43","Mostrador44","Mostrador45","Mostrador46","Mostrador47","Mostrador48","Mostrador49","Mostrador50","Mostrador51","Mostrador52","Mostrador53","Mostrador54","Mostrador55","Mostrador56","Mostrador57","Mostrador58","Mostrador59",
@@ -38,8 +38,22 @@ public class Manual extends AppCompatActivity {
     {
         // Start scanner here
         Intent intent = new Intent(getApplicationContext(), QRScanner.class);
-        startActivity(intent);
+        startActivityForResult(intent, REQUEST);
         Toast.makeText(this, intent.getStringExtra("codeResult"), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        // Check which request we're responding to
+        if (requestCode == REQUEST) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+
+                editText.setText(data.getStringExtra("result"));
+
+            }
+        }
     }
 
     public void buscarCodigo(View view)
