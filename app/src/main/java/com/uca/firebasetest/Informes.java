@@ -83,11 +83,11 @@ public class Informes extends AppCompatActivity {
                 if (spinner.getSelectedItem() != null) {
                     if (rbMostradores.isChecked()) {
                         String pos = " "+spinner.getSelectedItemPosition();
-                        databaseReference = FirebaseDatabase.getInstance().getReference().child("Mostradores").child(pos);
+                        databaseReference = FirebaseDatabase.getInstance().getReference().child("Mostradores");
                         ValueEventListener l = new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
-                                Toast.makeText(Informes.this, dataSnapshot.child("ATB").getValue().toString(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Informes.this, dataSnapshot.child("01").child("ATB").getValue().toString(), Toast.LENGTH_SHORT).show();
                             }
 
                             @Override

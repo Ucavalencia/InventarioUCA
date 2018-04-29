@@ -84,8 +84,62 @@
             android:id="@+id/txtCPU"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_below="@id/txtTeclado"
+            android:layout_below="@+id/textViewCPU"
             android:text="CPU" />
+
+        <TextView
+            android:id="@+id/txtPistola"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@id/txtTeclado"
+            android:text="Pistola" />
+
+        <TextView
+            android:id="@+id/textViewATB"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="100dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textViewBTP"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignStart="@+id/textViewATB"
+            android:layout_below="@+id/textATB"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textViewMonitor"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignStart="@+id/textViewATB"
+            android:layout_below="@+id/textBTP"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textViewTeclado"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignStart="@+id/textViewATB"
+            android:layout_below="@+id/txtMonitor"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textViewCPU"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignStart="@+id/textViewATB"
+            android:layout_below="@+id/txtTeclado"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textViewPistola"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignStart="@+id/textViewATB"
+            android:layout_alignTop="@+id/txtCPU"
+            android:text="TextView" />
     </RelativeLayout>
 
     <RelativeLayout
