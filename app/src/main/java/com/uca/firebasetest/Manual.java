@@ -8,16 +8,20 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Manual extends AppCompatActivity {
 
     private Spinner spinner;
     private Spinner dSpinner;
     private EditText textCodigo;
+    private TextView dActual;
 
     static final int REQUEST = 1;
 
@@ -29,6 +33,7 @@ public class Manual extends AppCompatActivity {
         spinner = (Spinner) findViewById(R.id.spinner);
         dSpinner = (Spinner) findViewById(R.id.spinnerDispositivo);
         textCodigo = (EditText) findViewById(R.id.textCodigo);
+        dActual = (TextView) findViewById(R.id.dActual);
 
         String[] ubicaciones = new String[] {"Almacen","Mostrador01","Mostrador02","Mostrador03","Mostrador04","Mostrador05","Mostrador06","Mostrador07","Mostrador08","Mostrador09","Mostrador10","Mostrador11","Mostrador12","Mostrador13","Mostrador14","Mostrador15","Mostrador16","Mostrador17","Mostrador18","Mostrador19","Mostrador20","Mostrador21","Mostrador22","Mostrador23","Mostrador24","Mostrador25","Mostrador26","Mostrador27",
                 "Mostrador28","Mostrador29","Mostrador30","Mostrador31","Mostrador32","Mostrador33","Mostrador34","Mostrador35","Mostrador36","Mostrador37","Mostrador38","Mostrador39","Mostrador40","Mostrador41","Mostrador42","Mostrador43","Mostrador44","Mostrador45","Mostrador46","Mostrador47","Mostrador48","Mostrador49","Mostrador50","Mostrador51","Mostrador52","Mostrador53","Mostrador54","Mostrador55","Mostrador56","Mostrador57","Mostrador58","Mostrador59",
@@ -61,6 +66,56 @@ public class Manual extends AppCompatActivity {
 
             }
         });
+
+        dSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String item = spinner.getSelectedItem().toString().toLowerCase();
+                if (item.equals("almacen") || item.equals("tunel")) // Almacen
+                {
+                    dActual.setText("");
+                    return;
+                }
+
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                switch (item.substring(0, 1)) {
+                    case "m": // Mostradores
+                        ref = ref.child("Mostradores");
+                        break;
+                    case "t": // Transitos
+                        ref = ref.child("Transitos");
+                        break;
+                    default: // Puertas
+                        ref = ref.child("Puertas");
+                        break;
+                }
+
+                // Seleccionar ID lugar
+                ref = ref.child(item.substring(item.length() - 2, item.length()));
+
+                // Seleccionar dispositivo
+                ref = ref.child(dSpinner.getSelectedItem().toString().toUpperCase());
+
+                ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        String value = dataSnapshot.getValue(String.class);
+                        dActual.setText(value);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        dActual.setText("");
+                    }
+                });
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                dActual.setText("");
+            }
+        });
     }
 
     public void startScanner(View view)
@@ -88,20 +143,18 @@ public class Manual extends AppCompatActivity {
 
         // Seleccionar lugar principal
         String item = spinner.getSelectedItem().toString().toLowerCase();
-        if (item.equals("almacen")) // Almacen
+        if (item.equals("almacen") || item.equals("tunel")) // Almacen
         {
-            ref = ref.child("Almacen");
+            item = Character.toUpperCase(item.charAt(0)) + item.substring(1);
+            ref = ref.child(item);
 
             // Coger dispositivo e introducir directamente
+            ref = ref.child(dSpinner.getSelectedItem().toString().toUpperCase());
 
-            return;
-        }
-        else if (item.equals("tunel")) // Tunel
-        {
-            ref = ref.child("Tunel");
-
-            // Coger dispositivo e introducir directamente
-
+            // Crear child con nombre de codigo VLC
+            ref.child(textCodigo.getText().toString()).push();
+            ref = ref.child(textCodigo.getText().toString());
+            ref.setValue(dSpinner.getSelectedItem().toString().toUpperCase());
             return;
         }
         else if (item.substring(0, 1).equals("m")) // Mostradores
@@ -117,6 +170,10 @@ public class Manual extends AppCompatActivity {
         // Seleccionar dispositivo
         ref = ref.child(dSpinner.getSelectedItem().toString().toUpperCase());
 
+        // Mover antiguo dispositivo
+
+
+        // Introducir valor
         ref.setValue(textCodigo.getText().toString());
     }
 }
