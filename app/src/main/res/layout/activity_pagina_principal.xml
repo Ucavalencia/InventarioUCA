@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/manual"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/codigo_barras"
+        app:srcCompat="@drawable/intercambiar"
         android:layout_marginRight="8dp" />
 
     <ImageButton
@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toStartOf="@+id/intercambiar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/manual"
+        app:srcCompat="@drawable/introducir"
         android:layout_marginRight="7dp" />
 
     <ImageButton
@@ -49,7 +49,7 @@
         android:layout_marginStart="28dp"
         app:layout_constraintStart_toEndOf="@+id/buscar"
         app:layout_constraintTop_toTopOf="@+id/buscar"
-        app:srcCompat="@drawable/informes"
+        app:srcCompat="@drawable/consultar"
         android:layout_marginLeft="28dp" />
 
     <TextView
