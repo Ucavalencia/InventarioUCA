@@ -99,7 +99,8 @@
         android:onClick="buscarCodigo"
         android:text="Buscar"
         tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="327dp" />
+        tools:layout_editor_absoluteY="327dp"
+        android:background="@drawable/buttonshape"/>
 
     <EditText
         android:id="@+id/editText2"

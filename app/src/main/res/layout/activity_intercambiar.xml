@@ -86,5 +86,6 @@
         android:text="OK"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/buttonshape"/>
 </android.support.constraint.ConstraintLayout>
