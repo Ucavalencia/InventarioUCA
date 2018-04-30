@@ -12,19 +12,15 @@
         <activity android:name=".PaginaPrincipal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-		<activity android:name=".MainActivity" />
-
         <activity android:name=".Manual" />
-
         <activity android:name=".Buscar" />
-
         <activity android:name=".Informes" />
-
         <activity android:name=".QRScanner" />
+        <activity android:name=".Intercambiar"></activity>
     </application>
 
 </manifest>

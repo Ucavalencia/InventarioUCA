@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.content.Intent;
+//TODO    CREAR USUARIOS, MEDIANTE FIREBASE AUTHENTICATION. USR Y PASS.
 
 public class PaginaPrincipal extends AppCompatActivity {
 
@@ -22,11 +23,11 @@ public class PaginaPrincipal extends AppCompatActivity {
             }
         });
 
-        ImageButton escanear = (ImageButton) findViewById(R.id.escanear);
+        ImageButton escanear = (ImageButton) findViewById(R.id.intercambiar);
         escanear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), Intercambiar.class);
                 startActivity(intent);
             }
         });

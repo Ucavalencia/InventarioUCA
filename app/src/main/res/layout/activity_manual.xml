@@ -78,6 +78,7 @@
         android:layout_marginLeft="21dp" />
 
     <Spinner
+        style="@android:style/Widget.Holo.Light.Spinner"
         android:id="@+id/spinner"
         android:layout_width="200dp"
         android:layout_height="50dp"
@@ -114,6 +115,7 @@
         android:layout_alignLeft="@+id/textView6" />
 
     <Spinner
+        style="@android:style/Widget.Holo.Light.Spinner"
         android:id="@+id/spinnerDispositivo"
         android:layout_width="199dp"
         android:layout_height="46dp"
