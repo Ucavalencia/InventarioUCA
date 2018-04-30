@@ -97,6 +97,7 @@ public class Informes extends AppCompatActivity {
                 spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, vPuertas));
                 rlMostradores.setVisibility(View.INVISIBLE);
                 rlPuertas.setVisibility(View.VISIBLE);
+                botonMostradoresPressed = false;
             }
         });
 
