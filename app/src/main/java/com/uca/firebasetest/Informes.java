@@ -33,6 +33,7 @@ public class Informes extends AppCompatActivity {
     private RelativeLayout rlMostradores;
     private RelativeLayout rlPuertas;
     private Button botonBuscar, botonMostradores, botonPuertas;
+    boolean botonMostradoresPressed = false;
 
     // Text Views Mostradores
     private TextView textViewATB, textViewBTP, textViewMonitor, textViewTeclado, textViewCPU, textViewLSR;
@@ -85,6 +86,7 @@ public class Informes extends AppCompatActivity {
                 spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, vMostradores));
                 rlMostradores.setVisibility(View.VISIBLE);
                 rlPuertas.setVisibility(View.INVISIBLE);
+                botonMostradoresPressed= true;
 
             }
         });
@@ -104,7 +106,7 @@ public class Informes extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (spinner.getSelectedItem() != null) {
-                    if (botonMostradores.isPressed()) {   //TODO   ESTO NO CREO QUE VAYA
+                    if (botonMostradoresPressed) {
                         databaseReference = FirebaseDatabase.getInstance().getReference().child("Mostradores");
                         ValueEventListener l = new ValueEventListener() {
                             @Override
