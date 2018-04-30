@@ -107,7 +107,8 @@
             android:layout_height="30dp"
             android:layout_alignStart="@+id/textViewATB"
             android:layout_below="@+id/textATB"
-            android:text="TextView" />
+            android:text="TextView"
+            android:layout_alignLeft="@+id/textViewATB" />
 
         <TextView
             android:id="@+id/textViewMonitor"
@@ -115,7 +116,8 @@
             android:layout_height="30dp"
             android:layout_alignStart="@+id/textViewATB"
             android:layout_below="@+id/textBTP"
-            android:text="TextView" />
+            android:text="TextView"
+            android:layout_alignLeft="@+id/textViewATB" />
 
         <TextView
             android:id="@+id/textViewTeclado"
@@ -123,7 +125,8 @@
             android:layout_height="30dp"
             android:layout_alignStart="@+id/textViewATB"
             android:layout_below="@+id/txtMonitor"
-            android:text="TextView" />
+            android:text="TextView"
+            android:layout_alignLeft="@+id/textViewATB" />
 
         <TextView
             android:id="@+id/textViewCPU"
@@ -131,7 +134,8 @@
             android:layout_height="30dp"
             android:layout_alignStart="@+id/textViewATB"
             android:layout_below="@+id/txtTeclado"
-            android:text="TextView" />
+            android:text="TextView"
+            android:layout_alignLeft="@+id/textViewATB" />
 
         <TextView
             android:id="@+id/textViewPistola"
@@ -139,7 +143,8 @@
             android:layout_height="30dp"
             android:layout_alignStart="@+id/textViewATB"
             android:layout_alignTop="@+id/txtCPU"
-            android:text="TextView" />
+            android:text="TextView"
+            android:layout_alignLeft="@+id/textViewATB" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -158,27 +163,83 @@
             android:id="@+id/textBGR"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:text="BGR" />
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="103dp"
+            android:text="BGR"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="103dp" />
 
         <TextView
             android:id="@+id/txtMonitorP"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_below="@id/textBGR"
-            android:text="Monitor" />
+            android:layout_alignStart="@+id/textBGR"
+            android:layout_below="@+id/textBGR"
+            android:text="Monitor"
+            android:layout_alignLeft="@+id/textBGR" />
 
         <TextView
             android:id="@+id/txtTecladoP"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_below="@id/txtMonitorP"
-            android:text="Teclado" />
+            android:layout_alignStart="@+id/textBGR"
+            android:layout_below="@+id/txtMonitorP"
+            android:text="Teclado"
+            android:layout_alignLeft="@+id/textBGR" />
 
         <TextView
             android:id="@+id/txtCPUP"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_below="@id/txtTecladoP"
+            android:layout_alignStart="@+id/textBGR"
+            android:layout_below="@+id/textDCP"
+            android:layout_marginTop="-60dp"
+            android:text="CPU"
+            android:layout_alignLeft="@+id/textBGR" />
+
+        <TextView
+            android:id="@+id/textDCP"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/textBGR"
+            android:layout_marginBottom="60dp"
+            android:text="DCP"
+            android:layout_alignLeft="@+id/textBGR" />
+
+        <TextView
+            android:id="@+id/BGR"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:text="BGR" />
+
+        <TextView
+            android:id="@+id/Monitor"
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:layout_below="@+id/textBGR"
+            android:text="Monitor" />
+
+        <TextView
+            android:id="@+id/Teclado"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_below="@+id/txtMonitorP"
+            android:text="Teclado" />
+
+        <TextView
+            android:id="@+id/DCP"
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:layout_alignTop="@+id/textDCP"
+            android:text="DCP" />
+
+        <TextView
+            android:id="@+id/CPU"
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:layout_alignTop="@+id/txtCPUP"
             android:text="CPU" />
     </RelativeLayout>
 

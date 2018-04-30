@@ -12,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +20,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 public class Informes extends AppCompatActivity {
 
@@ -32,7 +35,11 @@ public class Informes extends AppCompatActivity {
     private RelativeLayout rlPuertas;
     private Button botonBuscar;
 
+    // Text Views Mostradores
+    private TextView textViewATB, textViewBTP, textViewMonitor, textViewTeclado, textViewCPU, textViewLSR;
 
+    // Text Views Puertas
+    private TextView textViewBGR, textViewDCP, textViewMonitorp, textViewCPUp, textViewTecladop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +56,25 @@ public class Informes extends AppCompatActivity {
         rlPuertas = (RelativeLayout) findViewById(R.id.rlPuertas);
         botonBuscar = (Button) findViewById(R.id.botonBuscar);
 
+        // Text Views Mostradores
+        textViewATB = (TextView) findViewById(R.id.textViewATB);
+        textViewBTP = (TextView) findViewById(R.id.textViewBTP);
+        textViewLSR = (TextView) findViewById(R.id.textViewPistola);
+        textViewCPU = (TextView) findViewById(R.id.textViewCPU);
+        textViewMonitor = (TextView) findViewById(R.id.textViewMonitor);
+        textViewTeclado = (TextView) findViewById(R.id.textViewTeclado);
+
+        // Text Views Puertas
+        textViewBGR = (TextView) findViewById(R.id.textBGR);
+        textViewDCP = (TextView) findViewById(R.id.textDCP);
+        textViewCPUp = (TextView) findViewById(R.id.txtCPUP);
+        textViewTecladop = (TextView) findViewById(R.id.txtTecladoP);
+        textViewMonitorp = (TextView) findViewById(R.id.txtMonitorP);
+
         vMostradores = new String[] {"Mostrador01","Mostrador02","Mostrador03","Mostrador04","Mostrador05","Mostrador06","Mostrador07","Mostrador08","Mostrador09","Mostrador10","Mostrador11","Mostrador12","Mostrador13","Mostrador14","Mostrador15","Mostrador16","Mostrador17","Mostrador18","Mostrador19","Mostrador20","Mostrador21","Mostrador22","Mostrador23","Mostrador24","Mostrador25","Mostrador26","Mostrador27",
                 "Mostrador28","Mostrador29","Mostrador30","Mostrador31","Mostrador32","Mostrador33","Mostrador34","Mostrador35","Mostrador36","Mostrador37","Mostrador38","Mostrador39","Mostrador40","Mostrador41","Mostrador42","Mostrador43","Mostrador44","Mostrador45","Mostrador46","Mostrador47","Mostrador48","Mostrador49","Mostrador50","Mostrador51","Mostrador52","Mostrador53","Mostrador54","Mostrador55","Mostrador56","Mostrador57","Mostrador58","Mostrador59",
                 "Mostrador60","Mostrador61","Mostrador62"};
-        vPuertas = new String[] {"Puerta A1/A2","Puerta A3/A4","Puerta B5/B6","Puerta B7/B8","Puerta C9/C10","Puerta C11/C12","Puerta D13","Puerta D14","Puerta E15","Puerta E16","Puerta F17","Puerta F18",
+        vPuertas = new String[] {"Puerta A01","Puerta A03","Puerta B05","Puerta B07","Puerta C09","Puerta C11","Puerta D13","Puerta D14","Puerta E15","Puerta E16","Puerta F17","Puerta F18",
                 "Puerta R52","Puerta R53","Puerta R54","Puerta R55","Puerta R56","Puerta R57","Puerta R58","Puerta R59","Puerta R60"};
 
 
@@ -82,12 +104,19 @@ public class Informes extends AppCompatActivity {
             public void onClick(View v) {
                 if (spinner.getSelectedItem() != null) {
                     if (rbMostradores.isChecked()) {
-                        String pos = " "+spinner.getSelectedItemPosition();
                         databaseReference = FirebaseDatabase.getInstance().getReference().child("Mostradores");
                         ValueEventListener l = new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
-                                Toast.makeText(Informes.this, dataSnapshot.child("01").child("ATB").getValue().toString(), Toast.LENGTH_SHORT).show();
+                                String item = spinner.getSelectedItem().toString();
+                                item = item.substring(item.length() - 2, item.length());
+
+                                textViewATB.setText(dataSnapshot.child(item).child("ATB").getValue().toString());
+                                textViewBTP.setText(dataSnapshot.child(item).child("BTP").getValue().toString());
+                                textViewLSR.setText(dataSnapshot.child(item).child("LSR").getValue().toString());
+                                textViewMonitor.setText(dataSnapshot.child(item).child("MONITOR").getValue().toString());
+                                textViewTeclado.setText(dataSnapshot.child(item).child("TECLADO").getValue().toString());
+                                textViewCPU.setText(dataSnapshot.child(item).child("TORRE").getValue().toString());
                             }
 
                             @Override
@@ -98,6 +127,35 @@ public class Informes extends AppCompatActivity {
 
                         databaseReference.addListenerForSingleValueEvent(l);
 
+                    }
+                    else
+                    {
+                        databaseReference = FirebaseDatabase.getInstance().getReference().child("Puertas");
+                        ValueEventListener l = new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                String item = spinner.getSelectedItem().toString();
+                                item = item.substring(item.length() - 2, item.length());
+
+                                textViewBGR.setText(dataSnapshot.child(item).child("BGR").getValue().toString());
+                                textViewDCP.setText(dataSnapshot.child(item).child("DCP").getValue().toString());
+                                textViewMonitorp.setText(dataSnapshot.child(item).child("MONITOR").getValue().toString());
+
+                                if (Integer.parseInt(item) <= 18)
+                                    textViewTecladop.setText(dataSnapshot.child(item).child("TECLADO").getValue().toString());
+                                else
+                                    textViewTecladop.setText("");
+
+                                textViewCPUp.setText(dataSnapshot.child(item).child("TORRE").getValue().toString());
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        };
+
+                        databaseReference.addListenerForSingleValueEvent(l);
                     }
                 }
             }

@@ -15,7 +15,7 @@
         android:layout_marginTop="20dp"
         android:text="Introducir datos manualmente"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintBottom_toTopOf="@+id/textCodigo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,22 +24,20 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView7"
-        android:layout_marginTop="191dp"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/textView5"
         android:text="Codigo"
         app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toStartOf="@+id/editText"
+        app:layout_constraintEnd_toStartOf="@+id/textCodigo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        android:layout_toLeftOf="@+id/textView5" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/textCodigo"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/textView6"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="-45dp"
+        android:layout_centerInParent="true"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,15 +49,17 @@
         android:id="@+id/imageButton"
         android:layout_width="67dp"
         android:layout_height="45dp"
-        android:layout_alignBottom="@+id/textView6"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="11dp"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="14dp"
         android:onClick="startScanner"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editText"
+        app:layout_constraintStart_toEndOf="@+id/textCodigo"
         app:layout_constraintTop_toTopOf="@+id/spinner"
-        app:srcCompat="@drawable/codigo_barras" />
+        app:srcCompat="@drawable/codigo_barras"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="14dp" />
 
     <TextView
         android:id="@+id/textView7"
@@ -73,7 +73,9 @@
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toStartOf="@+id/spinner"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="21dp" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -82,7 +84,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="103dp"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintBottom_toTopOf="@+id/textCodigo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="parent" />
@@ -94,10 +96,31 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="154dp"
-        android:onClick="buscarCodigo"
+        android:onClick="introducirCodigo"
         android:text="Introducir"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textView6"
+        android:layout_marginTop="181dp"
+        android:text="Dispositivo"
+        android:layout_alignLeft="@+id/textView6" />
+
+    <Spinner
+        android:id="@+id/spinnerDispositivo"
+        android:layout_width="199dp"
+        android:layout_height="46dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="169dp"
+        android:layout_toEndOf="@+id/textView7"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/textView7" />
 </RelativeLayout>
