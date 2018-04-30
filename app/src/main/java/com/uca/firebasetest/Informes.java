@@ -1,6 +1,7 @@
 package com.uca.firebasetest;
 
 import android.content.Context;
+import android.support.annotation.DrawableRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,12 +29,10 @@ public class Informes extends AppCompatActivity {
     private Spinner spinner;
     private EditText editText;
     private DatabaseReference databaseReference;
-    private RadioGroup radioGroup;
-    private RadioButton rbMostradores, rbPuertas;
     String[] vMostradores, vPuertas;
     private RelativeLayout rlMostradores;
     private RelativeLayout rlPuertas;
-    private Button botonBuscar;
+    private Button botonBuscar, botonMostradores, botonPuertas;
 
     // Text Views Mostradores
     private TextView textViewATB, textViewBTP, textViewMonitor, textViewTeclado, textViewCPU, textViewLSR;
@@ -49,12 +48,11 @@ public class Informes extends AppCompatActivity {
         // Instanciamos las variables
 
         spinner = (Spinner) findViewById(R.id.spinner2);
-        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
-        rbMostradores = (RadioButton) findViewById(R.id.rbMostradores);
-        rbPuertas = (RadioButton) findViewById(R.id.rbPuertas);
         rlMostradores = (RelativeLayout) findViewById(R.id.rlMostradores);
         rlPuertas = (RelativeLayout) findViewById(R.id.rlPuertas);
         botonBuscar = (Button) findViewById(R.id.botonBuscar);
+        botonMostradores = (Button) findViewById(R.id.botonMostradores);
+        botonPuertas = (Button) findViewById(R.id.botonPuertas);
 
         // Text Views Mostradores
         textViewATB = (TextView) findViewById(R.id.textViewATB);
@@ -81,16 +79,17 @@ public class Informes extends AppCompatActivity {
 
         //Listeners
 
-        rbMostradores.setOnClickListener(new View.OnClickListener() {
+        botonMostradores.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, vMostradores));
                 rlMostradores.setVisibility(View.VISIBLE);
                 rlPuertas.setVisibility(View.INVISIBLE);
+
             }
         });
 
-        rbPuertas.setOnClickListener(new View.OnClickListener() {
+        botonPuertas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, vPuertas));
@@ -99,11 +98,13 @@ public class Informes extends AppCompatActivity {
             }
         });
 
+        //TODO  ELIMINAR EL BOTON E IMPLEMENTAR EL LISTENER DESDE EL PROPIO SPINNER
+
         botonBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (spinner.getSelectedItem() != null) {
-                    if (rbMostradores.isChecked()) {
+                    if (botonMostradores.isPressed()) {   //TODO   ESTO NO CREO QUE VAYA
                         databaseReference = FirebaseDatabase.getInstance().getReference().child("Mostradores");
                         ValueEventListener l = new ValueEventListener() {
                             @Override
