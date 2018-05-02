@@ -1,20 +1,14 @@
 package com.uca.firebasetest;
 
-import android.content.Context;
-import android.support.annotation.DrawableRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,17 +16,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 public class Informes extends AppCompatActivity {
 
     private Spinner spinner;
-    private EditText editText;
     private DatabaseReference databaseReference;
     String[] vMostradores, vPuertas;
     private RelativeLayout rlMostradores;
     private RelativeLayout rlPuertas;
-    private Button botonBuscar, botonMostradores, botonPuertas;
+    private Button botonMostradores, botonPuertas;
     boolean botonMostradoresPressed = false;
 
     // Text Views Mostradores
@@ -51,7 +42,6 @@ public class Informes extends AppCompatActivity {
         spinner = (Spinner) findViewById(R.id.spinner2);
         rlMostradores = (RelativeLayout) findViewById(R.id.rlMostradores);
         rlPuertas = (RelativeLayout) findViewById(R.id.rlPuertas);
-        botonBuscar = (Button) findViewById(R.id.botonBuscar);
         botonMostradores = (Button) findViewById(R.id.botonMostradores);
         botonPuertas = (Button) findViewById(R.id.botonPuertas);
 
@@ -101,11 +91,9 @@ public class Informes extends AppCompatActivity {
             }
         });
 
-        //TODO  ELIMINAR EL BOTON E IMPLEMENTAR EL LISTENER DESDE EL PROPIO SPINNER
-
-        botonBuscar.setOnClickListener(new View.OnClickListener() {
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onClick(View v) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (spinner.getSelectedItem() != null) {
                     if (botonMostradoresPressed) {
                         databaseReference = FirebaseDatabase.getInstance().getReference().child("Mostradores");
@@ -125,15 +113,16 @@ public class Informes extends AppCompatActivity {
 
                             @Override
                             public void onCancelled(DatabaseError databaseError) {
-
+                                textViewATB.setText("Error");
+                                textViewBTP.setText("Error");
+                                textViewLSR.setText("Error");
+                                textViewMonitor.setText("Error");
+                                textViewTeclado.setText("Error");
+                                textViewCPU.setText("Error");
                             }
                         };
-
                         databaseReference.addListenerForSingleValueEvent(l);
-
-                    }
-                    else
-                    {
+                    } else {
                         databaseReference = FirebaseDatabase.getInstance().getReference().child("Puertas");
                         ValueEventListener l = new ValueEventListener() {
                             @Override
@@ -155,7 +144,11 @@ public class Informes extends AppCompatActivity {
 
                             @Override
                             public void onCancelled(DatabaseError databaseError) {
-
+                                textViewBGR.setText("Error");
+                                textViewDCP.setText("Error");
+                                textViewMonitorp.setText("Error");
+                                textViewTecladop.setText("Error");
+                                textViewCPUp.setText("Error");
                             }
                         };
 
@@ -163,14 +156,18 @@ public class Informes extends AppCompatActivity {
                     }
                 }
             }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                textViewATB.setText("");
+                textViewBTP.setText("");
+                textViewLSR.setText("");
+                textViewBGR.setText("");
+                textViewDCP.setText("");
+                textViewMonitor.setText("");
+                textViewTeclado.setText("");
+                textViewCPU.setText("");
+            }
         });
-
-
-
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Mostradores");
-
-
-
-
     }
 }

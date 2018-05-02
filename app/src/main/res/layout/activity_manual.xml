@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:layout_editor_absoluteY="81dp">
 
+    <Spinner
+        android:id="@+id/spinnerDispositivo"
+        style="@android:style/Widget.Holo.Light.Spinner"
+        android:layout_width="199dp"
+        android:layout_height="46dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="169dp"
+        android:layout_toEndOf="@+id/textView7"
+        android:layout_toRightOf="@+id/textView7" />
+
     <TextView
         android:id="@+id/textView5"
         android:layout_width="264dp"
@@ -27,7 +39,7 @@
         android:layout_centerVertical="true"
         android:layout_toStartOf="@+id/textView5"
         android:text="Codigo"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/buttonIntroducir"
         app:layout_constraintEnd_toStartOf="@+id/textCodigo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
@@ -53,7 +65,7 @@
         android:layout_centerVertical="true"
         android:layout_marginEnd="14dp"
         android:onClick="startScanner"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/buttonIntroducir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textCodigo"
         app:layout_constraintTop_toTopOf="@+id/spinner"
@@ -91,19 +103,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonIntroducir"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="154dp"
+        android:layout_marginBottom="88dp"
+        android:background="@drawable/buttonshape"
         android:onClick="introducirCodigo"
         android:text="Introducir"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        android:background="@drawable/buttonshape"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
         android:id="@+id/textView9"
@@ -116,16 +128,13 @@
         android:layout_alignLeft="@+id/textView6" />
 
     <Spinner
+        android:id="@+id/spinnerMover"
         style="@android:style/Widget.Holo.Light.Spinner"
-        android:id="@+id/spinnerDispositivo"
         android:layout_width="199dp"
         android:layout_height="46dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="169dp"
-        android:layout_toEndOf="@+id/textView7"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/textView7" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="159dp" />
 
     <TextView
         android:id="@+id/dActual"
@@ -136,4 +145,14 @@
         android:layout_toEndOf="@+id/textCodigo"
         android:layout_marginLeft="8dp"
         android:layout_toRightOf="@+id/textCodigo" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textView6"
+        android:layout_marginBottom="171dp"
+        android:text="Mover a"
+        android:layout_alignLeft="@+id/textView6" />
 </RelativeLayout>

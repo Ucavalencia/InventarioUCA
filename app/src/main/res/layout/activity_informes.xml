@@ -39,16 +39,18 @@
 
 
     <Spinner
-        style="@android:style/Widget.Holo.Light.Spinner"
         android:id="@+id/spinner2"
-        android:layout_width="200dp"
+        style="@android:style/Widget.Holo.Light.Spinner"
+        android:layout_width="307dp"
         android:layout_height="60dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="160dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RelativeLayout
         android:id="@+id/rlMostradores"
@@ -158,11 +160,11 @@
 
     <RelativeLayout
         android:id="@+id/rlPuertas"
-        android:layout_width="312dp"
+        android:layout_width="319dp"
         android:layout_height="189dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="292dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="244dp"
         android:orientation="vertical"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
@@ -172,49 +174,49 @@
             android:id="@+id/textBGR"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="103dp"
-            android:text="BGR"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="103dp" />
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="103dp"
+            android:layout_marginStart="103dp"
+            android:text="BGR" />
 
         <TextView
             android:id="@+id/txtMonitorP"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
+            android:layout_alignLeft="@+id/textBGR"
             android:layout_alignStart="@+id/textBGR"
             android:layout_below="@+id/textBGR"
-            android:text="Monitor"
-            android:layout_alignLeft="@+id/textBGR" />
+            android:text="Monitor" />
 
         <TextView
             android:id="@+id/txtTecladoP"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
+            android:layout_alignLeft="@+id/textBGR"
             android:layout_alignStart="@+id/textBGR"
             android:layout_below="@+id/txtMonitorP"
-            android:text="Teclado"
-            android:layout_alignLeft="@+id/textBGR" />
+            android:text="Teclado" />
 
         <TextView
             android:id="@+id/txtCPUP"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
+            android:layout_alignLeft="@+id/textBGR"
             android:layout_alignStart="@+id/textBGR"
             android:layout_below="@+id/textDCP"
             android:layout_marginTop="-60dp"
-            android:text="CPU"
-            android:layout_alignLeft="@+id/textBGR" />
+            android:text="CPU" />
 
         <TextView
             android:id="@+id/textDCP"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
+            android:layout_alignLeft="@+id/textBGR"
             android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/textBGR"
             android:layout_marginBottom="60dp"
-            android:text="DCP"
-            android:layout_alignLeft="@+id/textBGR" />
+            android:text="DCP" />
 
         <TextView
             android:id="@+id/BGR"
@@ -251,19 +253,5 @@
             android:layout_alignTop="@+id/txtCPUP"
             android:text="CPU" />
     </RelativeLayout>
-
-    <Button
-        android:id="@+id/botonBuscar"
-        android:layout_width="119dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="248dp"
-        android:layout_marginStart="248dp"
-        android:layout_marginTop="176dp"
-        android:background="@drawable/buttonshape"
-        android:text="Buscar"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
