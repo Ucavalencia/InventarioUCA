@@ -16,6 +16,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+//TODO ARRAY PARA LOS ALMACENES (OFICINA, ALMACÉN Y TUNEL) Y OTRO PARA LOS TRÁNSITOS (T05)
+//TODO AÑADIR TEXTO MULTILINEA PARA EL RELATIVE LAYOUT DE LOS ALMACENES
+
 public class Informes extends AppCompatActivity {
 
     private Spinner spinner;
@@ -54,8 +57,8 @@ public class Informes extends AppCompatActivity {
         textViewTeclado = (TextView) findViewById(R.id.textViewTeclado);
 
         // Text Views Puertas
-        textViewBGR = (TextView) findViewById(R.id.textBGR);
-        textViewDCP = (TextView) findViewById(R.id.textDCP);
+        textViewBGR = (TextView) findViewById(R.id.txtBGR);
+        textViewDCP = (TextView) findViewById(R.id.txtDCP);
         textViewCPUp = (TextView) findViewById(R.id.txtCPUP);
         textViewTecladop = (TextView) findViewById(R.id.txtTecladoP);
         textViewMonitorp = (TextView) findViewById(R.id.txtMonitorP);

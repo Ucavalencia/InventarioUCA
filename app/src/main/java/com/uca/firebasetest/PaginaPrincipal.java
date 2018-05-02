@@ -6,6 +6,10 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.content.Intent;
 
+//TODO CAMBIAR EL LOGOTIPO DE LA APP POR UNO MAS BONITO
+//TODO EN CADA UNO DE LOS ACTIVITIES AÑADIR AL TITULO EL NOMBRE DE LA VENTANA
+
+
 public class PaginaPrincipal extends AppCompatActivity {
 
     @Override
@@ -31,17 +35,17 @@ public class PaginaPrincipal extends AppCompatActivity {
             }
         });
 
-        ImageButton buscar = (ImageButton) findViewById(R.id.buscar);
+        ImageButton buscar = (ImageButton) findViewById(R.id.altabaja);
         buscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Buscar.class);
+                Intent intent = new Intent(getApplicationContext(), AltaBaja.class);
                 startActivity(intent);
             }
         });
 
-        ImageButton informes = (ImageButton) findViewById(R.id.informes);
-        informes.setOnClickListener(new View.OnClickListener() {
+        ImageButton consultar = (ImageButton) findViewById(R.id.consultar);
+        consultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Informes.class);
