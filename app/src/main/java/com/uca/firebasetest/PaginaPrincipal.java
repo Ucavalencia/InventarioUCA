@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.content.Intent;
-//TODO    CREAR USUARIOS, MEDIANTE FIREBASE AUTHENTICATION. USR Y PASS.
 
 public class PaginaPrincipal extends AppCompatActivity {
 
