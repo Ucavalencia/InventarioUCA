@@ -1,5 +1,6 @@
 package com.uca.firebasetest;
 
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -48,6 +49,15 @@ public class PaginaPrincipal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Informes.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton buscarDispositivo = (ImageButton) findViewById(R.id.buscar);
+        buscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Buscar.class);
                 startActivity(intent);
             }
         });

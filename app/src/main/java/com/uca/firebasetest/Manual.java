@@ -18,6 +18,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+//TODO El dato introducido manualmente ya no incluye las letras "VLC" hay que añadirselo cuando consultamos la BBDD o escribamos sobre ella
+
 public class Manual extends AppCompatActivity {
     private Button button;
     private Spinner spinner;

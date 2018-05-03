@@ -16,13 +16,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PaginaPrincipal" />
-        <activity android:name=".Manual" />
-        <activity android:name=".Buscar" />
-        <activity android:name=".Informes" />
+        <activity android:name=".PaginaPrincipal"
+            android:label="Inventario UCA - Aeropuerto de Valencia"/>
+        <activity android:name=".Manual"
+            android:label="Introducir datos manualmente"/>
+        <activity android:name=".Buscar"
+            android:label="Buscar por Código"/>
+        <activity android:name=".Informes"
+            android:label="Buscar por Ubicación"/>
         <activity android:name=".QRScanner" />
-        <activity android:name=".Intercambiar" />
-        <activity android:name=".AltaBaja"></activity>
+        <activity android:name=".Intercambiar"
+            android:label="Intercambiar Dispositivos"/>
+        <activity android:name=".AltaBaja"
+            android:label="Alta y Baja de Dispositivos"></activity>
     </application>
 
 </manifest>
