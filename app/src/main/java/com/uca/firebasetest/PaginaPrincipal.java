@@ -9,7 +9,6 @@ import android.content.Intent;
 //TODO CAMBIAR EL LOGOTIPO DE LA APP POR UNO MAS BONITO
 //TODO EN CADA UNO DE LOS ACTIVITIES AÑADIR AL TITULO EL NOMBRE DE LA VENTANA
 
-
 public class PaginaPrincipal extends AppCompatActivity {
 
     @Override
