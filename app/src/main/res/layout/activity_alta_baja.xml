@@ -8,7 +8,7 @@
 
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spinnerAltaBaja1"
         style="@android:style/Widget.Holo.Light.Spinner"
         android:layout_width="250dp"
         android:layout_height="60dp"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextAltaBaja1"
         android:layout_width="249dp"
         android:layout_height="50dp"
         android:layout_marginLeft="100dp"
@@ -68,7 +68,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/spinnerAltaBaja2"
         style="@android:style/Widget.Holo.Light.Spinner"
         android:layout_width="250dp"
         android:layout_height="60dp"
@@ -86,6 +86,7 @@
         android:layout_marginStart="120dp"
         android:layout_marginTop="388dp"
         android:text="Dar de ALTA"
+        android:onClick="darAlta"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/buttonshape"/>
@@ -98,6 +99,7 @@
         android:layout_marginStart="240dp"
         android:layout_marginTop="388dp"
         android:text="Dar de BAJA"
+        android:onClick="darBaja"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/buttonshape"/>

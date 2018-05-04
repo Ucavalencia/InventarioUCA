@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 //TODO El dato introducido manualmente ya no incluye las letras "VLC" hay que añadirselo cuando consultamos la BBDD o escribamos sobre ella
 
 public class Manual extends AppCompatActivity {
+    private Helper helper;
     private Button button;
     private Spinner spinner;
     private Spinner dSpinner;
@@ -35,6 +36,7 @@ public class Manual extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manual);
 
+        helper = new Helper();
         button = (Button) findViewById(R.id.buttonIntroducir);
         spinner = (Spinner) findViewById(R.id.spinner);
         dSpinner = (Spinner) findViewById(R.id.spinnerDispositivo);
@@ -42,31 +44,21 @@ public class Manual extends AppCompatActivity {
         textCodigo = (EditText) findViewById(R.id.textCodigo);
         dActual = (TextView) findViewById(R.id.dActual);
 
-        String[] ubicaciones = new String[] {"Almacen","Mostrador01","Mostrador02","Mostrador03","Mostrador04","Mostrador05","Mostrador06","Mostrador07","Mostrador08","Mostrador09","Mostrador10","Mostrador11","Mostrador12","Mostrador13","Mostrador14","Mostrador15","Mostrador16","Mostrador17","Mostrador18","Mostrador19","Mostrador20","Mostrador21","Mostrador22","Mostrador23","Mostrador24","Mostrador25","Mostrador26","Mostrador27",
-                "Mostrador28","Mostrador29","Mostrador30","Mostrador31","Mostrador32","Mostrador33","Mostrador34","Mostrador35","Mostrador36","Mostrador37","Mostrador38","Mostrador39","Mostrador40","Mostrador41","Mostrador42","Mostrador43","Mostrador44","Mostrador45","Mostrador46","Mostrador47","Mostrador48","Mostrador49","Mostrador50","Mostrador51","Mostrador52","Mostrador53","Mostrador54","Mostrador55","Mostrador56","Mostrador57","Mostrador58","Mostrador59",
-                "Mostrador60","Mostrador61","Mostrador62","Puerta 01","Puerta 03","Puerta 05","Puerta 07","Puerta 09","Puerta 11","Puerta D13","Puerta D14","Puerta E15","Puerta E16","Puerta F17","Puerta F18",
-                "Puerta R52","Puerta R53","Puerta R54","Puerta R55","Puerta R56","Puerta R57","Puerta R58","Puerta R59","Puerta R60","Transito T05", "Tunel"};
-
-        final String[] dAlmacen = new String[] { "ATB", "BTP", "LSR", "BGR", "DCP", "Monitor", "Teclado", "Torre" };
-        final String[] dMostradores = new String[] { "ATB", "BTP", "LSR", "Monitor", "Teclado", "Torre" };
-        final String[] dPuertas = new String[] { "BGR", "DCP", "Monitor", "Teclado", "Torre" };
-        final String[] dTransitos = new String[] { "ATB", "DCP", "Monitor", "Torre" };
-
-        spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ubicaciones));
-        mSpinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ubicaciones));
+        spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, helper.ubicacionesAT));
+        mSpinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, helper.ubicacionesAT));
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String item = spinner.getSelectedItem().toString().toLowerCase();
                 if (item.equals("almacen") || item.equals("tunel")) // Almacen y Tunel
-                    dSpinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, dAlmacen));
+                    dSpinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.dispositivos));
                 else if (item.substring(0, 1).equals("m")) // Mostradores
-                    dSpinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, dMostradores));
+                    dSpinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.dispositivosM));
                 else if (item.substring(0, 1).equals("t")) // Transitos
-                    dSpinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, dTransitos));
+                    dSpinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.dispositivosT));
                 else // Puertas
-                    dSpinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, dPuertas));
+                    dSpinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.dispositivosP));
 
                 if (item.equals("almacen") || item.equals("tunel"))
                 {
@@ -100,7 +92,7 @@ public class Manual extends AppCompatActivity {
                 }
 
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-                ref = seleccionarLugar(ref, item);
+                ref = helper.seleccionarLugar(ref, item);
 
                 // Seleccionar ID lugar
                 ref = ref.child(item.substring(item.length() - 2, item.length()));
@@ -166,7 +158,7 @@ public class Manual extends AppCompatActivity {
 
         // Seleccionar lugar principal
         String item = spinner.getSelectedItem().toString().toLowerCase();
-        ref = seleccionarLugar(ref ,item);
+        ref = helper.seleccionarLugar(ref ,item);
 
         // Casos especificos (Almacen/Tunel)
         if (ref.getKey().equals("Almacen") || ref.getKey().equals("Tunel"))
@@ -203,7 +195,7 @@ public class Manual extends AppCompatActivity {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         String item = mSpinner.getSelectedItem().toString().toLowerCase();
 
-        ref = seleccionarLugar(ref, item);
+        ref = helper.seleccionarLugar(ref, item);
         if (ref.getKey().equals("Almacen") || ref.getKey().equals("Tunel"))
         {
             ref = ref.child(dSpinner.getSelectedItem().toString().toUpperCase());
@@ -218,21 +210,5 @@ public class Manual extends AppCompatActivity {
             ref = ref.child(dSpinner.getSelectedItem().toString().toUpperCase());
             ref.setValue(codigo);
         }
-    }
-
-    public DatabaseReference seleccionarLugar(DatabaseReference ref, String item)
-    {
-        if (item.equals("almacen")) // Almacen
-            ref = ref.child("Almacen");
-        else if (item.equals("tunel")) // Tunel
-            ref = ref.child("Tunel");
-        else if (item.substring(0, 1).equals("m")) // Mostradores
-            ref = ref.child("Mostradores");
-        else if (item.substring(0, 1).equals("t")) // Transitos
-            ref = ref.child("Transitos");
-        else // Puertas
-            ref = ref.child("Puertas");
-
-        return ref;
     }
 }

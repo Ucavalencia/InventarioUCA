@@ -8,87 +8,115 @@
     tools:layout_editor_absoluteY="81dp">
 
     <ImageButton
-        android:id="@+id/consultar2"
+        android:id="@+id/botonPaginaPrincipal4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="44dp"
         android:padding="0dp"
-        app:srcCompat="@drawable/buscar"
-        tools:layout_editor_absoluteX="213dp"
-        tools:layout_editor_absoluteY="245dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonPaginaPrincipal2"
+        app:srcCompat="@drawable/buscar" />
 
     <ImageButton
-        android:id="@+id/intercambiar"
+        android:id="@+id/botonPaginaPrincipal2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="16dp"
         android:padding="0dp"
-        app:srcCompat="@drawable/intercambiar"
-        tools:layout_editor_absoluteX="213dp"
-        tools:layout_editor_absoluteY="40dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/intercambiar" />
 
     <ImageButton
-        android:id="@+id/manual"
+        android:id="@+id/botonPaginaPrincipal1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
         android:padding="0dp"
-        app:srcCompat="@drawable/introducir"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="40dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/introducir" />
 
     <ImageButton
-        android:id="@+id/altabaja"
+        android:id="@+id/botonPaginaPrincipal5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="44dp"
         android:padding="0dp"
-        app:srcCompat="@drawable/altabaja"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="434dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonPaginaPrincipal3"
+        app:srcCompat="@drawable/altabaja" />
 
     <ImageButton
-        android:id="@+id/consultar"
+        android:id="@+id/botonPaginaPrincipal3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="36dp"
         android:padding="0dp"
-        app:srcCompat="@drawable/consultar"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="245dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:srcCompat="@drawable/consultar" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
         android:text="Cambio de Ubicación"
         android:textColor="@android:color/black"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="22dp"
-        tools:layout_editor_absoluteY="184dp" />
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/botonPaginaPrincipal1" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
         android:text="Intercambiar Dispositivos"
         android:textColor="@android:color/black"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="192dp"
-        tools:layout_editor_absoluteY="184dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonPaginaPrincipal2" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
         android:text="Buscar por Ubicación"
         android:textColor="@android:color/black"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="385dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonPaginaPrincipal3" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="Alta y Baja de Dispositivos"
         android:textColor="@android:color/black"
         android:textSize="16sp"
-        tools:layout_editor_absoluteY="554dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonPaginaPrincipal5" />
 
 </android.support.constraint.ConstraintLayout>

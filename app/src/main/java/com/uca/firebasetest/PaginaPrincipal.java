@@ -1,6 +1,5 @@
 package com.uca.firebasetest;
 
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +16,7 @@ public class PaginaPrincipal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagina_principal);
 
-        ImageButton manual = (ImageButton) findViewById(R.id.manual);
+        ImageButton manual = (ImageButton) findViewById(R.id.botonPaginaPrincipal1);
         manual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -26,8 +25,8 @@ public class PaginaPrincipal extends AppCompatActivity {
             }
         });
 
-        ImageButton escanear = (ImageButton) findViewById(R.id.intercambiar);
-        escanear.setOnClickListener(new View.OnClickListener() {
+        ImageButton intercambiar = (ImageButton) findViewById(R.id.botonPaginaPrincipal2);
+        intercambiar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Intercambiar.class);
@@ -35,17 +34,8 @@ public class PaginaPrincipal extends AppCompatActivity {
             }
         });
 
-        ImageButton buscar = (ImageButton) findViewById(R.id.altabaja);
-        buscar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AltaBaja.class);
-                startActivity(intent);
-            }
-        });
-
-        ImageButton consultar = (ImageButton) findViewById(R.id.consultar);
-        consultar.setOnClickListener(new View.OnClickListener() {
+        ImageButton buscarPorUbi = (ImageButton) findViewById(R.id.botonPaginaPrincipal3);
+        buscarPorUbi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Informes.class);
@@ -53,11 +43,20 @@ public class PaginaPrincipal extends AppCompatActivity {
             }
         });
 
-        ImageButton buscarDispositivo = (ImageButton) findViewById(R.id.buscar);
-        buscar.setOnClickListener(new View.OnClickListener() {
+        ImageButton buscarPorCodigo = (ImageButton) findViewById(R.id.botonPaginaPrincipal4);
+        buscarPorCodigo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Buscar.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton darDeAlta = (ImageButton) findViewById(R.id.botonPaginaPrincipal5);
+        darDeAlta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AltaBaja.class);
                 startActivity(intent);
             }
         });
