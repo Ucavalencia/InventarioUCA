@@ -20,9 +20,12 @@ public class Helper {
     public String[] puertas = new String[] { "Puerta 01","Puerta 03","Puerta 05","Puerta 07","Puerta 09","Puerta 11","Puerta D13","Puerta D14","Puerta E15","Puerta E16","Puerta F17","Puerta F18",
             "Puerta R52","Puerta R53","Puerta R54","Puerta R55","Puerta R56","Puerta R57","Puerta R58","Puerta R59","Puerta R60" };
 
-    public String[] transitos = new String[] { "Transito T05 " };
+    public String[] puertasConT = new String[] { "Puerta 01","Puerta 03","Puerta 05","Puerta 07","Puerta 09","Puerta 11","Puerta D13","Puerta D14","Puerta E15","Puerta E16","Puerta F17","Puerta F18",
+            "Puerta R52","Puerta R53","Puerta R54","Puerta R55","Puerta R56","Puerta R57","Puerta R58","Puerta R59","Puerta R60", "Transito T05" };
 
-    public String[] almacenes = new String[] { "Almacen", "Tunel" };
+    public String[] transitos = new String[] { "Transito T05" };
+
+    public String[] almacenes = new String[] { "Almacen", "Tunel", "Oficina" };
 
     public String[] dispositivos = new String[] { "ATB", "BTP", "LSR", "BGR", "DCP", "Monitor", "Teclado", "Torre" };
 
