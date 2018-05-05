@@ -52,7 +52,7 @@ public class PaginaPrincipal extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-/*
+
         ImageButton buscarDispositivo = (ImageButton) findViewById(R.id.buscar);
         buscar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +60,6 @@ public class PaginaPrincipal extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), Buscar.class);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 }

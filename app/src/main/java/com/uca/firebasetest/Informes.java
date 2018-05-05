@@ -47,6 +47,7 @@ public class Informes extends AppCompatActivity {
 
         // Instanciamos las variables
 
+        final Helper helper = new Helper();
         spinner = (Spinner) findViewById(R.id.spinner2);
         rlMostradores = (RelativeLayout) findViewById(R.id.rlMostradores);
         rlPuertas = (RelativeLayout) findViewById(R.id.rlPuertas);
@@ -79,22 +80,11 @@ public class Informes extends AppCompatActivity {
         txtCPUT = (TextView) findViewById(R.id.txtCPUT);
         txtDCPT = (TextView) findViewById(R.id.txtDCPT);
 
-        vMostradores = new String[] {"Mostrador01","Mostrador02","Mostrador03","Mostrador04","Mostrador05","Mostrador06","Mostrador07","Mostrador08","Mostrador09","Mostrador10","Mostrador11","Mostrador12","Mostrador13","Mostrador14","Mostrador15","Mostrador16","Mostrador17","Mostrador18","Mostrador19","Mostrador20","Mostrador21","Mostrador22","Mostrador23","Mostrador24","Mostrador25","Mostrador26","Mostrador27",
-                "Mostrador28","Mostrador29","Mostrador30","Mostrador31","Mostrador32","Mostrador33","Mostrador34","Mostrador35","Mostrador36","Mostrador37","Mostrador38","Mostrador39","Mostrador40","Mostrador41","Mostrador42","Mostrador43","Mostrador44","Mostrador45","Mostrador46","Mostrador47","Mostrador48","Mostrador49","Mostrador50","Mostrador51","Mostrador52","Mostrador53","Mostrador54","Mostrador55","Mostrador56","Mostrador57","Mostrador58","Mostrador59",
-                "Mostrador60","Mostrador61","Mostrador62"};
-        vPuertas = new String[] {"Puerta A01","Puerta A03","Puerta B05","Puerta B07","Puerta C09","Puerta C11","Puerta D13","Puerta D14","Puerta E15","Puerta E16","Puerta F17","Puerta F18",
-                "Puerta R52","Puerta R53","Puerta R54","Puerta R55","Puerta R56","Puerta R57","Puerta R58","Puerta R59","Puerta R60"};
-        vAlmacenes = new String[] {"Almacen", "Oficina", "Tunel"};
-        vTransitos = new String[] {"Transito 05"};
-
-
-
         //Listeners
-
         botonMostradores.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, vMostradores));
+                spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.mostradores));
                 rlMostradores.setVisibility(View.VISIBLE);
                 rlPuertas.setVisibility(View.INVISIBLE);
                 rlAlmacenes.setVisibility(View.INVISIBLE);
@@ -107,7 +97,7 @@ public class Informes extends AppCompatActivity {
         botonPuertas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, vPuertas));
+                spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.puertas));
                 rlMostradores.setVisibility(View.INVISIBLE);
                 rlPuertas.setVisibility(View.VISIBLE);
                 rlTransitos.setVisibility(View.INVISIBLE);
@@ -119,7 +109,7 @@ public class Informes extends AppCompatActivity {
         botonAlmacenes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, vAlmacenes));
+                spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.almacenes));
                 rlMostradores.setVisibility(View.INVISIBLE);
                 rlPuertas.setVisibility(View.INVISIBLE);
                 rlAlmacenes.setVisibility(View.VISIBLE);
@@ -132,7 +122,7 @@ public class Informes extends AppCompatActivity {
         botonTransitos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, vTransitos));
+                spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.transitos));
                 rlMostradores.setVisibility(View.INVISIBLE);
                 rlPuertas.setVisibility(View.INVISIBLE);
                 rlAlmacenes.setVisibility(View.INVISIBLE);
