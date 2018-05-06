@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.google.firebase.FirebaseApiNotAvailableException;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,7 +36,7 @@ public class Manual extends AppCompatActivity {
         setContentView(R.layout.activity_manual);
 
         helper = new Helper();
-        button = (Button) findViewById(R.id.buttonIntroducir);
+        button = (Button) findViewById(R.id.botonBuscarPorCodigo);
         spinner = (Spinner) findViewById(R.id.spinner);
         dSpinner = (Spinner) findViewById(R.id.spinnerDispositivo);
         mSpinner = (Spinner) findViewById(R.id.spinnerMover);
