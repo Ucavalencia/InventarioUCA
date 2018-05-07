@@ -5,21 +5,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import org.w3c.dom.Text;
+import com.google.firebase.database.ValueEventListener;
 
 //TODO    IMPLEMENTAR LAS INSTANCIAS DE LOS ELEMENTOS DEL LAYOUT, LOS LISTENERS Y EL LISTENER DEL BOTON.
 
 
 public class Buscar extends AppCompatActivity {
-
+    DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
     Button botonBuscar;
     TextView textoCodigo;
+    TextView textUbicacion;
     static final int REQUEST = 1;
 
     @Override
@@ -29,13 +31,16 @@ public class Buscar extends AppCompatActivity {
 
         botonBuscar = (Button) findViewById(R.id.botonBuscarPorCodigo);
         textoCodigo = (TextView) findViewById(R.id.textCodigo);
+        textUbicacion = (TextView) findViewById(R.id.textUbicacion);
 
         botonBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (textoCodigo.getText().toString().isEmpty())
+                    return;
 
-                //TODO implementar el código que busca en toda la base de datos el contenido del campo textoCodigo
-
+                textUbicacion.setText("Cargando..");
+                buscarCodigo(textoCodigo.getText().toString().toUpperCase());
             }
         });
     }
@@ -56,5 +61,95 @@ public class Buscar extends AppCompatActivity {
         }
     }
 
+    public void buscarCodigo(final String codigo)
+    {
+        // Busca en cada uno de los hijos que hay (deep nest iteration)
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot firstSnapshot) {
+                // Hijos de root ("inventario-uca")
+                for (DataSnapshot child : firstSnapshot.getChildren())
+                {
+                    // Entramos en el hijo (ej.: "inventario-uca/almacen")
+                    final DatabaseReference innerRef = FirebaseDatabase.getInstance().getReference().child(child.getKey());
 
+                    // Almacen / Tunel tienen una estructura diferente
+                    if (child.getKey().equals("Almacen")
+                            || child.getKey().equals("Tunel"))
+                    {
+                        innerRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot secondSnapshot) {
+                                for (DataSnapshot id : secondSnapshot.getChildren())
+                                {
+                                    // Entramos en el hijo del hijo anterior (ej.: "inventario-uca/almacen/ATB")
+                                    DatabaseReference subRef = innerRef.child(id.getKey());
+                                    subRef.orderByKey().equalTo(codigo).addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot thirdSnapshot) {
+                                            if (thirdSnapshot.getChildrenCount() > 0)
+                                            {
+                                                String res = thirdSnapshot.getRef().getParent().getKey() + " -> " + thirdSnapshot.getKey();
+                                                textUbicacion.setText(res);
+                                                return;
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(DatabaseError databaseError) {
+                                            textUbicacion.setText("Error de conexión");
+                                        }
+                                    });
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                                textUbicacion.setText("Error de conexión");
+                            }
+                        });
+                    }
+                    else // Mostradores / Puertas / Transitos
+                    {
+                        innerRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot secondSnapshot) {
+                                for (DataSnapshot id : secondSnapshot.getChildren())
+                                {
+                                    // Entramos en el hijo del hijo anterior (ej.: "inventario-uca/almacen/ATB")
+                                    DatabaseReference subRef = innerRef.child(id.getKey());
+                                    subRef.orderByValue().equalTo(codigo).addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot thirdSnapshot) {
+                                            if (thirdSnapshot.getChildrenCount() > 0)
+                                            {
+                                                String res = thirdSnapshot.getRef().getParent().getKey() + " -> " + thirdSnapshot.getKey();
+                                                textUbicacion.setText(res);
+                                                return;
+                                            }
+                                        }
+
+                                        @Override
+                                       public void onCancelled(DatabaseError databaseError) {
+                                            textUbicacion.setText("Error de conexión");
+                                        }
+                                    });
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                                textUbicacion.setText("Error de conexión");
+                            }
+                        });
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                textUbicacion.setText("Error de conexión");
+            }
+        });
+    }
 }

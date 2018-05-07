@@ -38,7 +38,8 @@
         android:onClick="startScanner"
         app:srcCompat="@drawable/codigo_barras"
         tools:layout_editor_absoluteX="296dp"
-        tools:layout_editor_absoluteY="234dp" />
+        tools:layout_editor_absoluteY="234dp"
+        android:layout_toRightOf="@+id/textCodigo" />
 
 
     <Button
@@ -55,7 +56,7 @@
         tools:layout_editor_absoluteY="327dp" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/textUbicacion"
         android:layout_width="194dp"
         android:layout_height="30dp"
         android:layout_alignParentBottom="true"
@@ -66,9 +67,11 @@
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView21"
+        android:layout_alignBottom="@+id/textUbicacion"
         android:layout_alignParentStart="true"
         android:layout_marginStart="11dp"
-        android:text="Ubicación:" />
+        android:text="Ubicación:"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="11dp" />
 
 </RelativeLayout>
