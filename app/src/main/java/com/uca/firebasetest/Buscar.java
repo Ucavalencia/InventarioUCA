@@ -6,16 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-//TODO    IMPLEMENTAR LAS INSTANCIAS DE LOS ELEMENTOS DEL LAYOUT, LOS LISTENERS Y EL LISTENER DEL BOTON.
-
 
 public class Buscar extends AppCompatActivity {
     DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
@@ -40,7 +36,10 @@ public class Buscar extends AppCompatActivity {
                     return;
 
                 textUbicacion.setText("Cargando..");
-                buscarCodigo(textoCodigo.getText().toString().toUpperCase());
+                if (textoCodigo.getText().toString().matches("\\d+"))
+                    buscarCodigo("VLC-" + textoCodigo.getText().toString());
+                else
+                    buscarCodigo(textoCodigo.getText().toString().toUpperCase());
             }
         });
     }
@@ -91,7 +90,6 @@ public class Buscar extends AppCompatActivity {
                                             {
                                                 String res = thirdSnapshot.getRef().getParent().getKey() + " -> " + thirdSnapshot.getKey();
                                                 textUbicacion.setText(res);
-                                                return;
                                             }
                                         }
 
@@ -101,6 +99,7 @@ public class Buscar extends AppCompatActivity {
                                         }
                                     });
                                 }
+                                textUbicacion.setText("No encontrado.");
                             }
 
                             @Override
@@ -125,7 +124,6 @@ public class Buscar extends AppCompatActivity {
                                             {
                                                 String res = thirdSnapshot.getRef().getParent().getKey() + " -> " + thirdSnapshot.getKey();
                                                 textUbicacion.setText(res);
-                                                return;
                                             }
                                         }
 
@@ -135,6 +133,7 @@ public class Buscar extends AppCompatActivity {
                                         }
                                     });
                                 }
+                                textUbicacion.setText("No encontrado.");
                             }
 
                             @Override
