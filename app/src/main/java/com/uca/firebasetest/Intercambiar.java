@@ -14,12 +14,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
-//TODO RELLENAR  EL SPINNER ORIGIN
-//TODO RELLENAR EL SPINNER DEST
-//TODO RELLENAR EL SPINNER DISPOSITIVO
-//TODO INSTANCIAR EL BOTON
-//TODO IMPLEMENTAR LA FUNCION DEL BOTON
-
 public class Intercambiar extends AppCompatActivity {
     private Helper helper;
     private Spinner spinnerOrigin;

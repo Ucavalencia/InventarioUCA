@@ -7,31 +7,24 @@
     tools:context=".AltaBaja">
 
 
-    <Spinner
-        android:id="@+id/spinnerAltaBaja1"
-        style="@android:style/Widget.Holo.Light.Spinner"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
+    <ImageButton
+        android:id="@+id/imageButtonAltaBaja"
+        android:layout_width="71dp"
+        android:layout_height="52dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="12dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="76dp"
+        android:onClick="startScanner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.779"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="120dp"
-        android:text="Dispositivo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/codigoAltaBaja"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/codigo_barras" />
 
     <TextView
         android:id="@+id/textView17"
@@ -39,20 +32,21 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="216dp"
+        android:layout_marginTop="92dp"
         android:text="Código VLC - "
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextAltaBaja1"
-        android:layout_width="249dp"
+        android:id="@+id/codigoAltaBaja"
+        android:layout_width="166dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginLeft="108dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="76dp"
         android:ems="10"
         android:inputType="number"
+        android:maxLength="5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,21 +54,21 @@
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="320dp"
-        android:text="Ubicación"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="204dp"
+        android:text="Dispositivo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinnerAltaBaja2"
+        android:id="@+id/spinnerAltaBajaDispositivo"
         style="@android:style/Widget.Holo.Light.Spinner"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_width="249dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="108dp"
         android:layout_marginStart="108dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="188dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -82,27 +76,27 @@
         android:id="@+id/botonDarDeAlta"
         android:layout_width="100dp"
         android:layout_height="75dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="388dp"
-        android:text="Dar de ALTA"
+        android:layout_marginLeft="68dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="328dp"
+        android:background="@drawable/buttonshape"
         android:onClick="darAlta"
+        android:text="Dar de ALTA"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/buttonshape"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/botonDarDeBaka"
+        android:id="@+id/botonDarDeBaja"
         android:layout_width="100dp"
         android:layout_height="75dp"
-        android:layout_marginLeft="240dp"
-        android:layout_marginStart="240dp"
-        android:layout_marginTop="388dp"
-        android:text="Dar de BAJA"
+        android:layout_marginLeft="224dp"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="328dp"
+        android:background="@drawable/buttonshape"
         android:onClick="darBaja"
+        android:text="Dar de BAJA"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/buttonshape"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>
