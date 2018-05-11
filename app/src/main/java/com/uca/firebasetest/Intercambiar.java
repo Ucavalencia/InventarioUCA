@@ -8,6 +8,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
 //TODO RELLENAR  EL SPINNER ORIGIN
 //TODO RELLENAR EL SPINNER DEST
 //TODO RELLENAR EL SPINNER DISPOSITIVO
@@ -15,6 +21,7 @@ import android.widget.Toast;
 //TODO IMPLEMENTAR LA FUNCION DEL BOTON
 
 public class Intercambiar extends AppCompatActivity {
+    private Helper helper;
     private Spinner spinnerOrigin;
     private Spinner spinnerDest;
     private Spinner spinnerDisp;
@@ -24,7 +31,7 @@ public class Intercambiar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intercambiar);
 
-        final Helper helper = new Helper();
+        helper = new Helper();
         spinnerOrigin = (Spinner) findViewById(R.id.spinnerIntercambiar1);
         spinnerDest = (Spinner) findViewById(R.id.spinnerIntercambiar2);
         spinnerDisp = (Spinner) findViewById(R.id.spinnerIntercambiar3);
@@ -63,13 +70,56 @@ public class Intercambiar extends AppCompatActivity {
 
     public void intercambiarDisp(View view)
     {
-        String origin = spinnerOrigin.getSelectedItem().toString();
-        String dest = spinnerDest.getSelectedItem().toString();
+        final String origin = spinnerOrigin.getSelectedItem().toString();
+        final String dest = spinnerDest.getSelectedItem().toString();
         if (origin.equals(dest))
         {
             Toast.makeText(getApplicationContext(), "No se puede intercambiar al mismo sitio", Toast.LENGTH_SHORT).show();
             return;
         }
+
+
+        final DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        final DatabaseReference refOrigin = helper.seleccionarLugar(ref, origin).child(origin.substring(origin.length() - 2, origin.length())).child(spinnerDisp.getSelectedItem().toString().toUpperCase());
+        refOrigin.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(final DataSnapshot dataSnapshot) {
+                final String dispOrigin = dataSnapshot.getValue(String.class);
+
+                if (!dataSnapshot.exists())
+                {
+                    Toast.makeText(getApplicationContext(), "Ese dispositivo no existe en " + origin, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                final DatabaseReference refDest = helper.seleccionarLugar(ref, dest).child(dest.substring(dest.length() - 2, dest.length())).child(spinnerDisp.getSelectedItem().toString().toUpperCase());
+                refDest.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot1) {
+                        final String dispDest = dataSnapshot1.getValue(String.class);
+
+                        if (!dataSnapshot1.exists())
+                        {
+                            Toast.makeText(getApplicationContext(), "Ese dispositivo no existe en " + dest, Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        refOrigin.setValue(dispDest);
+                        refDest.setValue(dispOrigin);
+                        Toast.makeText(getApplicationContext(), "Dispositivos intercambiados", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
 
 
     }
