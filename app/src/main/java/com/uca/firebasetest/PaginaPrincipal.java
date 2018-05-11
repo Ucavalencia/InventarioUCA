@@ -65,7 +65,7 @@ public class PaginaPrincipal extends AppCompatActivity {
         altaBajaUbicaciones .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Buscar.class);
+                Intent intent = new Intent(getApplicationContext(), AltaBajaUbicaciones.class);
                 startActivity(intent);
             }
         });
