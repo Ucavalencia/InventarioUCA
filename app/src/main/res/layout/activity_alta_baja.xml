@@ -34,15 +34,16 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="92dp"
         android:text="Código VLC - "
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/codigoAltaBaja"
-        android:layout_width="166dp"
+        android:layout_width="151dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="108dp"
-        android:layout_marginStart="108dp"
+        android:layout_marginLeft="124dp"
+        android:layout_marginStart="124dp"
         android:layout_marginTop="76dp"
         android:ems="10"
         android:inputType="number"
@@ -54,10 +55,11 @@
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="204dp"
         android:text="Dispositivo"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -65,10 +67,10 @@
         android:id="@+id/spinnerAltaBajaDispositivo"
         style="@android:style/Widget.Holo.Light.Spinner"
         android:layout_width="249dp"
-        android:layout_height="50dp"
+        android:layout_height="66dp"
         android:layout_marginLeft="108dp"
         android:layout_marginStart="108dp"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="172dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

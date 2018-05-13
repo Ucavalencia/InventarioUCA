@@ -14,16 +14,18 @@
         android:layout_alignLeft="@+id/textView7"
         android:layout_alignStart="@+id/textView7"
         android:text="Codigo VLC - "
+        android:textSize="18sp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="215dp" />
 
     <EditText
         android:id="@+id/textCodigo"
-        android:layout_width="207dp"
+        android:layout_width="187dp"
         android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="132dp"
+        android:layout_marginEnd="87dp"
+        android:layout_marginTop="130dp"
         android:ems="10"
         android:inputType="number"
         tools:layout_editor_absoluteX="89dp"
@@ -33,13 +35,13 @@
         android:id="@+id/imageButton"
         android:layout_width="69dp"
         android:layout_height="47dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/textCodigo"
-        android:layout_toEndOf="@+id/textCodigo"
+        android:layout_marginEnd="11dp"
         android:onClick="startScanner"
         app:srcCompat="@drawable/codigo_barras"
         tools:layout_editor_absoluteX="296dp"
-        tools:layout_editor_absoluteY="234dp"
-        android:layout_toRightOf="@+id/textCodigo" />
+        tools:layout_editor_absoluteY="234dp" />
 
 
     <Button
@@ -58,20 +60,21 @@
     <TextView
         android:id="@+id/textUbicacion"
         android:layout_width="194dp"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="145dp" />
+        android:layout_marginBottom="135dp" />
 
     <TextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textUbicacion"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_marginLeft="11dp"
         android:layout_marginStart="11dp"
         android:text="Ubicación:"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="11dp" />
+        android:textSize="18sp" />
 
 </RelativeLayout>

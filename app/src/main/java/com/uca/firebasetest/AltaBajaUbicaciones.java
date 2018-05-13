@@ -38,7 +38,7 @@ public class AltaBajaUbicaciones extends AppCompatActivity {
         checkBoxes[7] = (CheckBox) findViewById(R.id.checkBoxCPU);
 
         String[] s = new String[] { "Mostradores", "Puertas", "Transitos", "Almacén" };
-        spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, s));
+        spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_item, s));
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

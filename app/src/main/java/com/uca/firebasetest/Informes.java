@@ -88,7 +88,7 @@ public class Informes extends AppCompatActivity {
         botonMostradores.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.mostradores));
+                spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), R.layout.spinner_item, helper.mostradores));
                 rlMostradores.setVisibility(View.VISIBLE);
                 rlPuertas.setVisibility(View.INVISIBLE);
                 rlAlmacenes.setVisibility(View.INVISIBLE);
@@ -101,7 +101,7 @@ public class Informes extends AppCompatActivity {
         botonPuertas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.puertas));
+                spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), R.layout.spinner_item, helper.puertas));
                 rlMostradores.setVisibility(View.INVISIBLE);
                 rlPuertas.setVisibility(View.VISIBLE);
                 rlTransitos.setVisibility(View.INVISIBLE);
@@ -113,7 +113,7 @@ public class Informes extends AppCompatActivity {
         botonAlmacenes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.almacenes));
+                spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), R.layout.spinner_item, helper.almacenes));
                 rlMostradores.setVisibility(View.INVISIBLE);
                 rlPuertas.setVisibility(View.INVISIBLE);
                 rlAlmacenes.setVisibility(View.VISIBLE);
@@ -125,7 +125,7 @@ public class Informes extends AppCompatActivity {
         botonTransitos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.transitos));
+                spinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), R.layout.spinner_item, helper.transitos));
                 rlMostradores.setVisibility(View.INVISIBLE);
                 rlPuertas.setVisibility(View.INVISIBLE);
                 rlAlmacenes.setVisibility(View.INVISIBLE);

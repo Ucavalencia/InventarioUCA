@@ -41,21 +41,21 @@ public class Manual extends AppCompatActivity {
         textCodigo = (EditText) findViewById(R.id.textCodigo);
         dActual = (TextView) findViewById(R.id.dActual);
 
-        spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, helper.ubicacionesAT));
-        mSpinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, helper.ubicacionesAT));
+        spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_item, helper.ubicacionesAT));
+        mSpinner.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_item, helper.ubicacionesAT));
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String item = spinner.getSelectedItem().toString().toLowerCase();
                 if (item.equals("almacen") || item.equals("tunel")) // Almacen y Tunel
-                    dSpinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.dispositivos));
+                    dSpinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), R.layout.spinner_item, helper.dispositivos));
                 else if (item.substring(0, 1).equals("m")) // Mostradores
-                    dSpinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.dispositivosM));
+                    dSpinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), R.layout.spinner_item, helper.dispositivosM));
                 else if (item.substring(0, 1).equals("t")) // Transitos
-                    dSpinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.dispositivosT));
+                    dSpinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), R.layout.spinner_item, helper.dispositivosT));
                 else // Puertas
-                    dSpinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.dispositivosP));
+                    dSpinner.setAdapter(new ArrayAdapter<String>(getBaseContext(), R.layout.spinner_item, helper.dispositivosP));
 
                 if (item.equals("almacen") || item.equals("tunel"))
                 {

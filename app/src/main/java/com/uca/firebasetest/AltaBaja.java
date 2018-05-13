@@ -31,7 +31,7 @@ public class AltaBaja extends AppCompatActivity {
         spinnerDispositivo = (Spinner) findViewById(R.id.spinnerAltaBajaDispositivo);
         textCodigo = (EditText) findViewById(R.id.codigoAltaBaja);
 
-        spinnerDispositivo.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, helper.dispositivos));
+        spinnerDispositivo.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_item, helper.dispositivos));
     }
 
     public void startScanner(View view)

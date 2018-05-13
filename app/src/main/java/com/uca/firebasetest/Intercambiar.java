@@ -30,8 +30,8 @@ public class Intercambiar extends AppCompatActivity {
         spinnerDest = (Spinner) findViewById(R.id.spinnerIntercambiar2);
         spinnerDisp = (Spinner) findViewById(R.id.spinnerIntercambiar3);
 
-        spinnerOrigin.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, helper.ubicacionesNoAT));
-        spinnerDest.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, helper.ubicacionesNoAT));
+        spinnerOrigin.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_item, helper.ubicacionesNoAT));
+        spinnerDest.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_item, helper.ubicacionesNoAT));
 
         spinnerOrigin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -40,13 +40,13 @@ public class Intercambiar extends AppCompatActivity {
 
                 switch (item.substring(0, 1)) {
                     case "m": // Mostradores
-                        spinnerDisp.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.dispositivosM));
+                        spinnerDisp.setAdapter(new ArrayAdapter<String>(getBaseContext(), R.layout.spinner_item, helper.dispositivosM));
                         break;
                     case "t": // Transitos
-                        spinnerDisp.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.dispositivosT));
+                        spinnerDisp.setAdapter(new ArrayAdapter<String>(getBaseContext(), R.layout.spinner_item, helper.dispositivosT));
                         break;
                     default: // Puertas
-                        spinnerDisp.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, helper.dispositivosP));
+                        spinnerDisp.setAdapter(new ArrayAdapter<String>(getBaseContext(), R.layout.spinner_item, helper.dispositivosP));
                         break;
                 }
 
